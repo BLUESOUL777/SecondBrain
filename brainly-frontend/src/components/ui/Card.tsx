@@ -8,7 +8,7 @@ interface CardProps {
 
 export const Card = (props: CardProps) => {
     return (
-        <div className="border-1 rounded bg-white min-w-96 h-full shadow-lg
+        <div className="border-1 rounded bg-white max-h-140 min-w-72 h-full shadow-lg
         p-4">
             <div className="flex items-center">
                 <div className="p-1">
@@ -28,7 +28,7 @@ export const Card = (props: CardProps) => {
             </div>
             <div className="p-4">
                 {props.type === "youtube" &&
-                    <iframe className="h-72 w-96" src={props.link.replace("watch","embed").replace("?v=","/")}
+                    <iframe className="h-72 w-68" src={props.link.replace("watch","embed").replace("?v=","/")}
                         title="YouTube video player" frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
