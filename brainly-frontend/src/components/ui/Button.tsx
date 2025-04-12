@@ -7,7 +7,7 @@ interface ButtonProps {
     text: string;
     variant: Variants;
     size: Sizes;
-    onClick: () => void;
+    onClick?: () => void;
     startIcon?: ReactElement | string;
     endIcon?: ReactElement | string;
 }
@@ -20,16 +20,18 @@ const variantStyle = {
 const sizeStyles = {
     "sm": "px-4 py-2 ",
     "md": "px-6 py-4 text-2xl",
-    "lg": "px-6 py-4"
+    "lg": "px-8 py-4 text-3xl"
 }
 
-const defaultStyles = "rounded-md flex items-center"
+const defaultStyles = "rounded-md flex items-center cursor-pointer"
 
 export const Button = (props: ButtonProps) => {
     return (
-        <button className={`${variantStyle[props.variant]} ${sizeStyles[props.size]}
-        ${defaultStyles}`}>
-        {props.startIcon} {props.text}
+        <button 
+            onClick={props.onClick}
+            className={`${variantStyle[props.variant]} ${sizeStyles[props.size]}
+            ${defaultStyles}`}>
+            {props.startIcon} {props.text}
         </button>
     )
 }

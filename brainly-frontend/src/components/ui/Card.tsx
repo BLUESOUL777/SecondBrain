@@ -8,7 +8,7 @@ interface CardProps {
 
 export const Card = (props: CardProps) => {
     return (
-        <div className="border-1 rounded bg-slate-100 min-w-96 h-full shadow-lg
+        <div className="border-1 rounded bg-white min-w-96 h-full shadow-lg
         p-4">
             <div className="flex items-center">
                 <div className="p-1">

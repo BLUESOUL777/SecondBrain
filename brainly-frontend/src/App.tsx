@@ -3,24 +3,29 @@ import './App.css';
 import {PlusIcon} from './icons/PlusIcon';
 import {ShareIcon} from './icons/ShareIcon';
 import {Card} from './components/ui/Card'
+import { CreateContentModel } from './components/ui/CreateContentModel';
+import { useState } from 'react';
+import { Sidebar } from './components/ui/Sidebar';
 
 function App() {
-
+  const [contentModel , setContentModel] = useState(true);
   return (
-    <div className='p-5'>
+    <>
+    <Sidebar/>
+    <div className='p-5 bg-gray-100 min-h-screen'>
+      <CreateContentModel open={contentModel} onClose={()=>{setContentModel(false)}}/>
       <div className='flex justify-end gap-2 '>
         <Button 
           startIcon = {<ShareIcon size={"md"}/>}
           variant="primary" 
           size="md" 
-          onClick={() => console.log('Button clicked')}
           text='Share Brain'
         />
         <Button 
           startIcon = {<PlusIcon size={"md"}/>}
           variant="secondary" 
           size="md" 
-          onClick={() => console.log('Button clicked')}
+          onClick={() => setContentModel(true)}
           text='Attach Content'
         />
       </div>
@@ -42,6 +47,7 @@ function App() {
         />
       </div>
     </div>
+    </>
   )
 }
 
