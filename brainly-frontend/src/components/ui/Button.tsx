@@ -10,6 +10,8 @@ interface ButtonProps {
     onClick?: () => void;
     startIcon?: ReactElement | string;
     endIcon?: ReactElement | string;
+    fullWidth?: boolean;
+    loading?:boolean;
 }
 
 const variantStyle = {
@@ -19,7 +21,7 @@ const variantStyle = {
 
 const sizeStyles = {
     "sm": "px-4 py-2 ",
-    "md": "px-5 py-3 text-2xl",
+    "md": "px-4 py-3 text-2xl",
     "lg": "px-8 py-4 text-3xl"
 }
 
@@ -30,7 +32,7 @@ export const Button = (props: ButtonProps) => {
         <button 
             onClick={props.onClick}
             className={`${variantStyle[props.variant]} ${sizeStyles[props.size]}
-            ${defaultStyles}`}>
+            ${defaultStyles} ${props.fullWidth ? " w-full flex justify-center" : " "} ${props.loading ? " opacity-50" : ""}`}>
             {props.startIcon} {props.text}
         </button>
     )

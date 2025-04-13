@@ -1,10 +1,15 @@
-export function Input({onChange, placeholder}: {onChange: () => void, placeholder: string}) {
+interface Inputprops{
+    placeholder:string;
+    ref?:any;
+}
+
+export function Input({ placeholder , ref}: Inputprops) {
     return(
         <div>
             <input 
-                type="text" 
-                onChange={onChange} 
+                type="text"  
                 placeholder={placeholder} 
+                ref={ref}
                 className="opacity-100 text-xl text-black border-2 rounded-md m-4 p-2" 
             />
         </div>
